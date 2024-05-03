@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional Styles for Home Section Animation */
+    #home {
+      animation: swipeUp 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes swipeUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="submission.html">Submission</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Home Section -->
+<section id="home">
+    <h1>Welcome to Our Art Gallery</h1>
+    <p>Step into a realm where colors dance with emotions and shapes whisper stories of their own. Our art gallery is a sanctuary where creativity reigns supreme, and every stroke of the brush or chisel is a testament to the human spirit's boundless ingenuity. Wander through halls adorned with the vibrant tapestry of artistic expression, where each piece is a doorway to a different world, a window into the depths of the human soul. Whether you seek solace in the quiet contemplation of a serene landscape or the exhilarating rush of avant-garde experimentation, our gallery offers a journey of discovery and delight. Join us in celebrating the myriad forms of beauty that grace our walls and let your imagination soar amidst the symphony of colors and shapes. Welcome, dear traveler, to a place where dreams take flight and art becomes life.</p>
+  </section>
+  
+
+
+  <script src="script.js"></script>
+  <script>
+    function navigateTo(sectionId) {
+      const section = document.getElementById(sectionId);
+      const yOffset = -50; // Adjust offset if needed
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
