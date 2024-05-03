@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional Styles for Tooltips */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="submission.html">Submission</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <!-- Artwork Display -->
+    <div class="artwork">
+      <!-- Artwork items -->
+      <div class="tooltip">
+        <img src="images/photo-1.jpg" alt="Artwork 1" onclick="openModal('Artwork 1', 'A serene landscape painting depicting a tranquil countryside scene with rolling hills and a peaceful stream.')">
+        <span class="tooltiptext">Artwork 1</span>
+      </div>
+      <div class="tooltip">
+        <img src="images/photo-2.jpg" alt="Artwork 2" onclick="openModal('Artwork 2', 'A vibrant abstract painting bursting with bold colors and dynamic shapes, evoking a sense of energy and movement.')">
+        <span class="tooltiptext">Artwork 2</span>
+      </div>
+      <div class="tooltip">
+        <img src="images/photo-3.jpg" alt="Artwork 3" onclick="openModal('Artwork 3', 'A delicate watercolor portrait capturing the subtle expressions and emotions of the subject with soft, ethereal brushstrokes.')">
+        <span class="tooltiptext">Artwork 3</span>
+      </div>
+      <div class="tooltip">
+        <img src="images/photo-4.jpeg" alt="Artwork 4" onclick="openModal('Artwork 4', 'A striking black and white photograph showcasing the architectural beauty of a historic landmark against a dramatic sky.')">
+        <span class="tooltiptext">Artwork 4</span>
+      </div>
+      <div class="tooltip">
+        <img src="images/photo-5.jpg" alt="Artwork 5" onclick="openModal('Artwork 5', 'A surreal digital artwork exploring the depths of imagination and fantasy, with surreal creatures and dreamlike landscapes.')">
+        <span class="tooltiptext">Artwork 5</span>
+      </div>
+      <div class="tooltip">
+        <img src="images/photo-6.jpg" alt="Artwork 6" onclick="openModal('Artwork 6', 'An expressive oil painting depicting a bouquet of flowers in a vivid, impressionistic style, capturing the essence of nature\'s beauty.')">
+        <span class="tooltiptext">Artwork 6</span>
+      </div>
+      <div class="tooltip">
+        <img src="images/photo-7.jpg" alt="Artwork 7" onclick="openModal('Artwork 7', 'A minimalist sculpture crafted from metal and wood, playing with negative space and geometric forms to create a sense of balance and harmony.')">
+        <span class="tooltiptext">Artwork 7</span>
+      </div>
+      <div class="tooltip">
+        <img src="images/photo-8.jpg" alt="Artwork 8" onclick="openModal('Artwork 8', 'A mixed media collage blending various textures and materials to create a visually captivating composition, rich in layers and depth.')">
+        <span class="tooltiptext">Artwork 8</span>
+      </div>
+      <!-- Add more images here -->
+    </div>
+  </section>
+  
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function openModal(title, description) {
+      const modal = document.getElementById("myModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDescription = document.getElementById("modalDescription");
+    
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      modal.style.display = "block";    
+    }
+    
+    function closeModal() {
+      const modal = document.getElementById("myModal");
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>

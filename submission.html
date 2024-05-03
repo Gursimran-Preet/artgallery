@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional Styles for Form Animation */
+    #submission {
+      animation: slideIn 0.5s forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="submission.html">Submission</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Submission Form Section -->
+  <section id="submission">
+    <h2>Submit Your Work</h2>
+    <form id="submissionForm" enctype="multipart/form-data" onsubmit="showAlert(event)">
+      <label for="image">Upload Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required><br><br>
+
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="description" rows="4" required></textarea><br><br>
+
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    function navigateTo(sectionId) {
+      const section = document.getElementById(sectionId);
+      const yOffset = -50; // Adjust offset if needed
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+
+    function showAlert(event) {
+      event.preventDefault();
+      alert("Form submitted successfully!");
+    }
+  </script>
+</body>
+</html>

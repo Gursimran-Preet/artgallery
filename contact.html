@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional Styles for Contact Section Animation */
+    #contact {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start; /* Adjusted to move content more to the left */
+      align-items: center;
+      animation: slideInContact 1s forwards;
+      opacity: 0;
+      margin-right: 100px;
+    }
+
+    @keyframes slideInContact {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .contact-details {
+      flex: 1;
+      padding: 20px;
+    }
+
+    #contactForm {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Form Styles */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="submission.html">Submission</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact-details">
+      <h2>Contact Us</h2>
+      <p>Email: example@example.com</p>
+      <p>Phone: +1234567890</p>
+      <p>Address: 123 Street, City, Country</p>
+    </div>
+    <div id="contactForm">
+      <h2>Send us an Email</h2>
+      <form action="#" onsubmit="showAlert(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <input type="submit" value="Send">
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    function navigateTo(sectionId) {
+      const section = document.getElementById(sectionId);
+      const yOffset = -50; // Adjust offset if needed
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+
+    function showAlert(event) {
+      event.preventDefault();
+      alert("Form submitted successfully!");
+    }
+  </script>
+</body>
+</html>
